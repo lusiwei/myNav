@@ -3,14 +3,78 @@
 <head>
 	<meta charset="UTF-8">
 	<title>myNav</title>
+	<link rel="stylesheet" href="./main.css">
 </head>
 <body>
 	<header></header>
-	<main></main>
-	<footer></footer>
-	<script>
-	
+	<main>
+		<div id="wrapper">
 
+		</div>
+	</main>
+	<footer></footer>
+<script>
+	keys = {
+		'0' : [1,2,3,4,5,6,7,8,9,0],
+		'1' : ['q','w','e','r','t','y','u','i','o','p'],
+		'2' : ['a','s','d','f','g','h','j','k','l'],
+		'3' : ['z','x','c','v','b','n','m'],
+		'length':4
+	 }
+	hash = {
+		'q' : 'qq.com',
+		'w' : 'weibo.com',
+		'e' : 'ele.me',
+		'r' : 'renren.com',
+		't' : 'taobao.com',
+		'y' : 'youku.com',
+		'u'	: 'uc.com',
+		'i'	: 'iciba.com',
+		'o'	: 'opera.com',
+		'p'	: '',
+		'a'	: 'aiqiyi.com',
+		's'	: 'souhu.com',
+		'd'	: '',
+		'f'	: 'facebook.com',
+		'g'	: 'google.com',
+		'h'	: 'huya.com',
+		'j'	: 'jirengu.com',
+		'k'	: '',
+		'l'	: 'letv.com',
+		'z'	: '',
+		'x'	: 'xiedaimala.com',
+		'c'	: '.com',
+		'v'	: '.com',
+		'b'	: 'baike.com',
+		'n'	: 'niuke.com',
+		'm'	: 'macdonalds.com'
+	}
+	// console.log(keys.length)
+	index=0
+	while (index<keys.length){
+		div=document.createElement('div')
+		wrapper.appendChild(div)
+		index2=0 //每一行第几个键
+		row=keys[index] //第几行
+		// console.log(keys[index2])
+		while (index2<row.length){
+			kbd=document.createElement('kbd')
+			div.appendChild(kbd)
+			// kdb.textContent(row[index2])
+			kbd.textContent=(row[index2])
+			index2=index2+1
+			// console.log(index2)
+		}
+		index=index+1
+	}
+		
+	document.onkeypress=function(user_key){
+		key=user_key.key
+		url=hash[key]
+		console.log(url)
+		window.open('http://www.'+url,'_blank')
+
+	}
 	
 </script>
 </body>
