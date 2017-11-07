@@ -8,6 +8,7 @@ a{
 body{
     background-image: url(./bizhi-6.jpg);
     background-size:cover;
+    
 }
 #wrapper{
     text-align: center;
@@ -15,6 +16,7 @@ body{
 }
 #wrapper kbd{
     /* border: 1px solid red; */
+    font-family: "Fredoka One",cursive;
     border-radius: 5px;
     width: 4em;
     height: 4em;
@@ -34,7 +36,7 @@ body{
 }
 #wrapper kbd:hover{
     background-color: rgb(248, 248, 248);
-    color: #000;
+    color:rgba(0,0,0,0.75);
     cursor: pointer;
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
