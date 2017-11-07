@@ -33,6 +33,7 @@ body{
     color: #fff;
     box-shadow: 8px 8px 4px 0px rgba(0,0,0,0.75);
     transition: 1s;
+    position: relative;
 }
 #wrapper kbd:hover{
     background-color: rgb(248, 248, 248);
@@ -45,4 +46,19 @@ body{
 }
 #wrapper>div:nth-child(4){
     margin-left: 4em-14px;
+}
+kbd button{
+    display: none;
+    position: absolute;
+    top:-15pxgit;
+    left: -25px;
+    font-family: inherit;
+    background: transparent;
+    border: 0px;
+}
+
+/* 这里出错了，我写成了kbd button:hover */
+kbd:hover button{
+    display: inline-block;
+    color: #fff;
 }
