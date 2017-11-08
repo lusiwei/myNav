@@ -51,6 +51,12 @@
 		'm'	: 'macdonalds.com'
 	}
 	// console.log(keys.length)
+
+	localinstorage=JSON.parse(localStorage.getItem('user_hash')||null)
+	if (localinstorage){
+		hash=localinstorage
+	}
+	console.log(hash)
 	index=0
 	while (index<keys.length){
 		div=document.createElement('div')
@@ -78,7 +84,9 @@
 				console.log(k)
 				user_define=prompt('请输入你要定义的网址')
 				hash[k]=user_define
-				console.log(hash)
+				// console.log(hash)
+				// 这里目前还不会
+				localStorage.setItem('user_hash',JSON.stringify(hash))
 				// hash[]
 			}
 			
