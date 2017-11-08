@@ -45,7 +45,7 @@
 		'z'	: '',
 		'x'	: 'xiedaimala.com',
 		'c'	: '.com',
-		'v'	: '.com',
+		'v'	: 'vscode.com',
 		'b'	: 'baike.com',
 		'n'	: 'niuke.com',
 		'm'	: 'macdonalds.com'
@@ -70,24 +70,39 @@
 			kbd.textContent=(row[index2])
 			// kdb.textContent(row[index2])
 			btn=document.createElement('button')
+			btn2=document.createElement('button')
 			kbd.appendChild(btn)
-			btn.textContent="EDIT"
+			kbd.appendChild(btn2)
+			btn.textContent='E'
+			btn2.textContent='D'
+			
 			btn.id=row[index2]
-			// console.log(btn)
+			btn2.id=row[index2]
+			// console.log(btn2)
 			btn.onclick=function(xxx){
 				// console.log(xxx)
 				//这里要想办法知道点击的是个按钮，有于通过xxx对象target属性里面的属性，可确定点击的是哪个按钮
 				// btn.id=row[index2] 之前把这句写在这里找个好久才找出错误，这样意思就是点击后才会改变id,
 				// 由于oncink事件结束后xxx对象中target里的id属性是空的，后面再改id就没用了
-				console.log(btn.id)
+				// console.log(btn.id)
 				k=xxx['target']['id']
-				console.log(k)
+				// console.log(k)
 				user_define=prompt('请输入你要定义的网址')
 				hash[k]=user_define
 				// console.log(hash)
 				// 这里目前还不会
 				localStorage.setItem('user_hash',JSON.stringify(hash))
 				// hash[]
+			}
+			btn2.onclick=function(userdel){
+				ke=userdel['target']['id']
+				console.log('这里打印的是删除所点击的btn id')
+				console.log(ke)
+				// hash[ke]=''
+				delete hash[ke]
+				
+				localStorage.setItem('user_hash',JSON.stringify(hash))
+				console.log(hash)
 			}
 			
 
@@ -101,15 +116,17 @@
 		key=user_key.key
 		url=hash[key]
 		// console.log(url)
-		window.open('http://www.'+url,'_blank')
+		console.log(user_key)
+		if (hash[key]!=undefined){
+			window.open('http://www.'+url,'_blank')
+		}else{
+			kbd=document.getElementsByTagName('kbd')
+			console.log(kbd)
+			kbd.backgroundColor='red'
+			
+		}
 	}
 	
 </script>
 </body>
-
-
-
-
-
-
 </html>
