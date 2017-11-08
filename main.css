@@ -5,8 +5,12 @@
 a{
     text-decoration: none;
 }
+@font-face{
+    font-family: "Fredoka one",cursive;
+    src: url("FredokaOne-Regular.ttf");
+}
 body{
-    background-image: url(./bizhi-6.jpg);
+    background-image: url(https://i.loli.net/2017/11/08/5a02f0c9eb538.jpg);
     background-size:cover;
     
 }
