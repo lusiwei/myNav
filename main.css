@@ -109,10 +109,36 @@ header button:hover{
 }
 header input{
     padding: 5px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     box-sizing: border-box;
+    background: transparent;
+    border-bottom: 1px solid rgb(41, 97, 224);
+    color: white;
 }
 header input:focus{
     /* border-radius: 5px; */
-    outline-color: #3548e0;
+    outline-color: transparent;
 }
+
+
+/* 加入图标 */
+kbd::after{
+    content: "";
+    display: block;
+    
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+}
+#kbdq::after{background-image: url(./icon/qq.png);}
+#kbdw::after{background-image: url(./icon/weibo.png);}
+#kbdt::after{background-image: url(./icon/icon_taobao.png);}
+#kbdy::after{background-image: url(./icon/youku.png);}
+#kbdj::after{background-image: url(./icon/jirengu.png);}
+#kbdd::after{background-image: url(./icon/douban.png);}
+#kbdz::after{background-image: url(./icon/zhihu.png);}
+#kbdm::after{background-image: url(./icon/meituan.png);}
+#kbdi::after{background-image: url(./icon/iqiyi.png);}
+
