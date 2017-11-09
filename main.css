@@ -1,6 +1,7 @@
 *{
     padding: 0;
     margin: 0;
+    border: 0;
 }
 a{
     text-decoration: none;
@@ -12,11 +13,12 @@ a{
 body{
     background-image: url(https://i.loli.net/2017/11/08/5a02f0c9eb538.jpg);
     background-size:cover;
+    font-family: "Fredoka One",cursive;
     
 }
 #wrapper{
     text-align: center;
-    margin-top: 150px;
+    margin-top: 50px;
 }
 #wrapper kbd{
     /* border: 1px solid red; */
@@ -33,7 +35,7 @@ body{
     margin-right: 15px;
     margin-bottom: 15px;
     text-transform: uppercase;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.8);
     color: #fff;
     box-shadow: 8px 8px 4px 0px rgba(0,0,0,0.75);
     transition: all 0.1s;
@@ -45,6 +47,7 @@ body{
     cursor: pointer;
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     transition: 1s;
+    cursor: alias;
 }
 #wrapper>div:nth-child(3){
     margin-left: 2em;
@@ -58,13 +61,23 @@ kbd button{
    
     font-family: inherit;
     background: transparent;
-    border: 0px;
+    /* border: 1px solid red; */
+    background-color:rgb(41, 97, 224);
+    color: #fff;
+    border-radius: 4px;
+    padding: 0px 3px;
 }
 
 /* 这里出错了，我写成了kbd button:hover */
 kbd:hover button{
     display: inline-block;
     color: #fff;
+   
+}
+kbd button:hover{
+    cursor: url(./bj.png),auto;
+    background-color: #fff;
+    color: #000;
 }
 kbd button:nth-child(1){
     top:0px;
@@ -73,4 +86,28 @@ kbd button:nth-child(1){
 kbd button:nth-child2(){
     top: 0px;
     left: 10px;
+}
+
+
+header{
+    text-align: center;
+    padding-top: 100px;
+    font-family: inherit;
+}
+header button{
+    font-family: inherit;
+    background: #000;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
+header button:hover{
+    background: #fff;
+    color: #000;
+    cursor: pointer;
+}
+header input{
+    padding: 5px;
+    border-radius: 5px;
+    box-sizing: border-box;
 }

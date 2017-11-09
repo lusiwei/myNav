@@ -4,11 +4,17 @@
 	<meta charset="UTF-8">
 	<title>myNav</title>
 	<link rel="stylesheet" href="./main.css">
+	<link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap-grid.css" rel="stylesheet">
 	<!-- <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet"> -->
+	
 </head>
 <body>
-	<header></header>
-	<main>
+	<header>
+		<input type="text" name="" id="input">
+		<button id='bd'>百度搜索</button>
+		<button id='gg'>谷歌搜索</button>
+	</header>
+	<main id="main">
 		<div id="wrapper">
 
 		</div>
@@ -121,6 +127,11 @@
 		url=hash[key]
 		// console.log(url)
 		// console.log(user_key.isComposing)
+		
+		// user_key.cancelBubble=true
+		// user_key.defaultPrevented=true
+		// user_key.preventDefault()
+		// user_key.stopPropagation()
 		// console.log(user_key)
 		if (hash[key]){
 			window.open('http://www.'+url,'_blank')
@@ -133,15 +144,31 @@
 	}
 	// press.style.backgroundColor='green'
 	document.onkeyup=function(user_key){
-		console.log(user_key)
+		// console.log(user_key)
+		// user_key.cancelBubble=true
+		// user_key.defaultPrevented=true
+		// user_key.preventDefault()
+		// user_key.stopPropagation()
 		key=user_key.key
 		kbd_id='kbd'+key
-		console.log(kbd_id)
+		// console.log(kbd_id)
 		up=document.getElementById(kbd_id)
 		up.style.backgroundColor="rgba(0,0,0,0.4)"
 
 	}
+
+	// input.onfocus=function(xxx){
+	// 	xxx.preventDefault()
+	// 	xxx.defaultPrevented=true
+	// 	xxx.cancelBubble=true
+	// 	xxx.stopPropagation()
+	// 	console.log("这是xxx")
+	// 	console.log(xxx)
+		
+		
+	// }
 	
 </script>
+<script src="./main.js"></script>
 </body>
 </html>
