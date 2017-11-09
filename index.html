@@ -99,8 +99,10 @@
 				ke=userdel['target']['id']
 				console.log('这里打印的是删除所点击的btn id')
 				console.log(ke)
-				// hash[ke]=''
-				delete hash[ke]
+				//字符串截取，截取其中的key
+				key=ke.substring(4)
+				console.log(key)
+				delete hash[key]
 				
 				localStorage.setItem('user_hash',JSON.stringify(hash))
 				console.log(hash)
