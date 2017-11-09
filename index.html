@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>myNav</title>
 	<link rel="stylesheet" href="./main.css">
-	<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+	<!-- <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet"> -->
 </head>
 <body>
 	<header></header>
@@ -33,7 +33,7 @@
 		'i'	: 'iciba.com',
 		'o'	: 'opera.com',
 		'p'	: '',
-		'a'	: 'aiqiyi.com',
+		'a'	: 'iqiyi.com',
 		's'	: 'souhu.com',
 		'd'	: '',
 		'f'	: 'facebook.com',
@@ -77,7 +77,8 @@
 			btn2.textContent='D'
 			
 			btn.id=row[index2]
-			btn2.id=row[index2]
+			btn2.id='del-'+row[index2]
+			kbd.id='kbd'+row[index2]
 			// console.log(btn2)
 			btn.onclick=function(xxx){
 				// console.log(xxx)
@@ -111,20 +112,32 @@
 		}
 		index=index+1
 	}
-		
+
+	
 	document.onkeypress=function(user_key){
 		key=user_key.key
 		url=hash[key]
 		// console.log(url)
-		console.log(user_key)
-		if (hash[key]!=undefined){
+		// console.log(user_key.isComposing)
+		// console.log(user_key)
+		if (hash[key]){
 			window.open('http://www.'+url,'_blank')
 		}else{
-			kbd=document.getElementsByTagName('kbd')
-			// console.log(kbd)
-			// kbd.backgroundColor='red'
-
+			kbd_id='kbd'+key
+			// console.log(kbd_id)
+			press=document.getElementById(kbd_id)		
+			press.style.backgroundColor='red'
 		}
+	}
+	// press.style.backgroundColor='green'
+	document.onkeyup=function(user_key){
+		console.log(user_key)
+		key=user_key.key
+		kbd_id='kbd'+key
+		console.log(kbd_id)
+		up=document.getElementById(kbd_id)
+		up.style.backgroundColor="rgba(0,0,0,0.4)"
+
 	}
 	
 </script>

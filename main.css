@@ -36,7 +36,7 @@ body{
     background-color: rgba(0,0,0,0.4);
     color: #fff;
     box-shadow: 8px 8px 4px 0px rgba(0,0,0,0.75);
-    transition: 1s;
+    transition: all 0.1s;
     position: relative;
 }
 #wrapper kbd:hover{
@@ -44,6 +44,7 @@ body{
     color:rgba(0,0,0,0.75);
     cursor: pointer;
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    transition: 1s;
 }
 #wrapper>div:nth-child(3){
     margin-left: 2em;
