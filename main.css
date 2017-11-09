@@ -75,7 +75,8 @@ kbd:hover button{
    
 }
 kbd button:hover{
-    cursor: url(./bj.png),auto;
+    /* cursor: url(./bj.png),auto; */
+    cursor: ;
     background-color: #fff;
     color: #000;
 }
@@ -110,4 +111,8 @@ header input{
     padding: 5px;
     border-radius: 5px;
     box-sizing: border-box;
+}
+header input:focus{
+    /* border-radius: 5px; */
+    outline-color: #3548e0;
 }
