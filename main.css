@@ -1,144 +1,93 @@
 *{
-    padding: 0;
     margin: 0;
+    padding: 0;
     border: 0;
 }
-a{
-    text-decoration: none;
-}
-@font-face{
-    font-family: "Fredoka one",cursive;
-    src: url("FredokaOne-Regular.ttf");
-}
-body{
-    background-image: url(https://i.loli.net/2017/11/08/5a02f0c9eb538.jpg);
-    background-size:cover;
-    font-family: "Fredoka One",cursive;
-    
-}
-#wrapper{
-    text-align: center;
-    margin-top: 50px;
-}
-#wrapper kbd{
-    /* border: 1px solid red; */
-    font-family: "Fredoka One",cursive;
-    border-radius: 5px;
-    width: 4em;
-    height: 4em;
+a{text-decoration: none;}
+kbd{
     display: inline-block;
-    box-sizing: border-box;
-    /* padding: auto; */
-    line-height: 4em;
-    vertical-align: top;
-    font-size: 16px;
-    margin-right: 15px;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    background-color: rgba(0,0,0,0.8);
-    color: #fff;
-    box-shadow: 8px 8px 4px 0px rgba(0,0,0,0.75);
-    transition: all 0.1s;
-    position: relative;
-}
-#wrapper kbd:hover{
-    /* background-color: rgb(248, 248, 248); */
-    color:rgba(0,0,0,0.75);
-    cursor: pointer;
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    transition: 1s;
-    cursor: alias;
-}
-#wrapper>div:nth-child(3){
-    margin-left: 2em;
-}
-#wrapper>div:nth-child(4){
-    margin-left: 4em-14px;
-}
-kbd button{
-    display: none;
-    position: absolute;
-   
-    font-family: inherit;
-    background: transparent;
-    /* border: 1px solid red; */
-    background-color:rgb(41, 97, 224);
-    color: #fff;
-    border-radius: 4px;
-    padding: 0px 3px;
-}
-
-/* 这里出错了，我写成了kbd button:hover */
-kbd:hover button{
-    display: inline-block;
-    color: #fff;
-   
-}
-kbd button:hover{
-    /* cursor: url(./bj.png),auto; */
-    cursor: ;
-    background-color: #fff;
-    color: #000;
-}
-kbd button:nth-child(1){
-    top:0px;
-    left: 5px;
-}
-kbd button:nth-child2(){
-    top: 0px;
-    left: 10px;
-}
-
-
-header{
-    text-align: center;
-    padding-top: 100px;
-    font-family: inherit;
-}
-header button{
-    font-family: inherit;
+    height: 70px;
+    width:70px;
+    font-size: 24px;
     background: #000;
     color: #fff;
-    padding: 5px;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 70px;
+    margin-bottom: 12px;
+    margin-right: 13px;
+    position: relative;
+}
+
+
+/* 给特殊按键设置宽度 */
+#wrapper{
+    text-align: center;
+    margin-top: 100px;
+}
+#wrapper div #kbd_tab{
+    width: 120px;
+}
+#wrapper div #kbd_14{
+    width: 120px;
+}
+#wrapper div #kbd_cl{
+    width: 138px;
+}
+#wrapper div #kbd_enter{
+    width: 138px;
+}
+#wrapper div #kbd_shift{
+    width: 178px;
+}
+#wrapper div #kbd_shift_r{
+    width: 178px;
+}
+#wrapper div #kbd_command{
+    width: 95px;
+}
+#wrapper div #kbd_space{
+    width: 402px;
+}
+#wrapper div #kbd_direction{
+    width: 237px;
+}
+/* 搜索框样式 */
+#search{
+    /* text-align: center; */
+    display: inline-block;
+}
+main{
+    text-align: center;
+}
+
+#wrapper button{
+    position: absolute;
+    padding: 0 5px;
+    background: rgb(41, 97, 224);
     border-radius: 5px;
+    display: none;
 }
-header button:hover{
-    background: #fff;
-    color: #000;
-    cursor: pointer;
+#wrapper button:hover{
+   background: #fff;
 }
-header input{
-    padding: 5px;
-    /* border-radius: 5px; */
-    box-sizing: border-box;
-    background: transparent;
-    border-bottom: 1px solid rgb(41, 97, 224);
-    color: white;
+#wrapper button:nth-child(2){
+    left: 0px;
+    top: 0px;
+    border: 0px;
 }
-header input:focus{
-    /* border-radius: 5px; */
-    outline-color: transparent;
+#wrapper button:last-child{
+    left: 30px;
+    top: 0px;
 }
-
-
-/* 加入图标 */
-kbd::after{
-    content: "";
+#wrapper kbd:hover button{
     display: block;
-    
+}
+img{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
     width: 16px;
     height: 16px;
-    position: absolute;
-    bottom: 4px;
-    left: 4px;
+    display: inline-block;
 }
-#kbdq::after{background-image: url(./icon/qq.png);}
-#kbdw::after{background-image: url(./icon/weibo.png);}
-#kbdt::after{background-image: url(./icon/icon_taobao.png);}
-#kbdy::after{background-image: url(./icon/youku.png);}
-#kbdj::after{background-image: url(./icon/jirengu.png);}
-#kbdd::after{background-image: url(./icon/douban.png);}
-#kbdz::after{background-image: url(./icon/zhihu.png);}
-#kbdm::after{background-image: url(./icon/meituan.png);}
-#kbdi::after{background-image: url(./icon/iqiyi.png);}
-

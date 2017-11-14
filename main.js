@@ -1,9 +1,122 @@
-var bd=document.getElementById('bd')
-var gg=document.getElementById('gg')
-var input=document.getElementById('input')
-bd.onclick=function (xxx){
-    window.open('http://www.baidu.com/s?wd='+input.value,'_blank')
+
+
+// 键盘每一行用一个数组表示，然后整个键盘用hash表示
+var keys = {
+    0: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], //length=14
+    1: ['tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '{', '}', '|'],    //length=14
+    2: ['cl', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'colon', 'quote', 'enter'],
+    3: ['shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'shift_r'],
+    4: ['fn', 'ctrl', 'option', 'command', 'space', 'command', 'option', 'direction'],
+    length: 5
 }
-gg.onclick=function(xxx){
-    window.open('http://www.google.com/search?q='+input.value,'_blank')
+var hash = {
+    q: '//qq.com',
+    w: '//weibo.com',
+    t: '//tudou.com',
+    y: '//youku.com',
+    i: '//iqiyi.com',
+    d: '//douban.com',
+    z: '//zhihu.com',
+    m: '//meituan.com',
+    j: '//jirengu.com',
+    x: '//xiedaimala.com',
+    b: '//baidu.com'
+}
+var getLocalStorage = JSON.parse(localStorage.getItem('user_hash') || null)   //取出hash,并从字符串转换成对象
+if (getLocalStorage) {
+    hash = getLocalStorage
+}
+
+
+for (var keys_index = 0; keys_index < keys.length; keys_index++) {
+    //生成div
+    var div = document.createElement('div')
+    var wrapper = document.getElementById('wrapper')
+    wrapper.appendChild(div)
+    for (var row_index = 0; row_index < keys[keys_index].length; row_index++) {
+        // 生成kbd标签
+        var kbd = document.createElement('kbd')
+        var key_value = keys[keys_index][row_index]
+        div.appendChild(kbd)
+        kbd.textContent = key_value
+        kbd.id = 'kbd_' + kbd.textContent
+        // 生成img
+        var img = document.createElement('img')
+        kbd.appendChild(img)
+        if (hash[key_value]) {
+            img.src = hash[key_value] + '/favicon.ico'
+        } else {
+            img.src = './favicon.ico'
+        }
+        img.onerror = function () {
+            img.src = './favicon.ico'
+        }
+        // 生成编辑和删除按钮
+        var btn_E = document.createElement('button')
+        var btn_D = document.createElement('button')
+        kbd.appendChild(btn_E)
+        kbd.appendChild(btn_D)
+        btn_E.textContent = 'E'
+        btn_D.textContent = 'D'
+        btn_E.id = 'E_' + key_value
+        btn_D.id = 'D_' + key_value
+        // 编辑按钮
+        btn_E.onclick = function (xx) {
+            var user_input = prompt('请输入你要自定义的网址')
+            console.log(xx)
+            var click_key_id = xx.target.id
+            var key = click_key_id.substring(2)
+            hash[key] = user_input
+            // 编辑后判断icon地址
+            if (hash[key]) {
+                img.src = hash[key] + '/favicon.ico'
+            } else {
+                img.src = './favicon.ico'
+            }
+            img.onerror = function () {
+                img.src = './favicon.ico'
+            }
+            //将改变后的hash存到localstorage防止用户刷新后失效
+            // JSON.stringify将hash对象转换为字符串
+            localStorage.setItem('user_hash', JSON.stringify(hash))
+        }
+        // 删除按钮
+        btn_D.onclick = function (xx) {
+            var click_key_id = xx.target.id
+            var key = click_key_id.substring(2)
+            delete hash[key]
+            console.log(hash)
+            //将改变后的hash存到localstorage防止用户刷新后失效
+            // JSON.stringify将hash对象转换为字符串
+            localStorage.setItem('user_hash', JSON.stringify(hash))
+        }
+    }
+}
+
+// 监听得到焦点和失去焦点两个事件
+var focus = false
+input.onfocus = function (xx) {
+    focus = true
+}
+input.onblur = function (xx) {
+    focus = false
+}
+
+// 监听键盘输入
+document.onkeypress = function (xx) {
+    var getKey = xx.key
+    // console.log(focus)
+    if (!focus) {
+        if (hash[getKey]) {
+            window.open('//' + hash[getKey], '_blank')
+        }
+    }
+}
+
+// 百度搜索和谷歌搜索按钮
+baidu.onclick = function () {
+    window.open('//baidu.com/s?wd=' + input.value, '_blank')
+}
+google.onclick = function () {
+    window.open('//google.com/search?q=' + input.value, '_blank')
 }
