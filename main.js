@@ -20,7 +20,8 @@ var hash = {
     m: '//meituan.com',
     j: '//jirengu.com',
     x: '//xiedaimala.com',
-    b: '//baidu.com'
+    b: '//baidu.com',
+    a: '//alibaba.com'
 }
 var getLocalStorage = JSON.parse(localStorage.getItem('user_hash') || null)   //取出hash,并从字符串转换成对象
 if (getLocalStorage) {
@@ -71,7 +72,7 @@ for (var keys_index = 0; keys_index < keys.length; keys_index++) {
             if (hash[key]) {
                 img.src = hash[key] + '/favicon.ico'
             } else {
-                img.src = './favicon.ico'
+                img.src = '//'+'./favicon.ico'
             }
             img.onerror = function () {
                 img.src = './favicon.ico'
