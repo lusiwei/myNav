@@ -13,24 +13,12 @@ a{
 body{
     background-image: url(https://i.loli.net/2017/11/08/5a02f0c9eb538.jpg);
     background-size:cover;
-<<<<<<< HEAD
-    text-align: center;
-=======
     font-family: "Fredoka One",cursive;
->>>>>>> d995cf1fb33e5571df36d5e7db3e1573d5521b31
     
 }
 #wrapper{
     text-align: center;
-<<<<<<< HEAD
-    margin-top: 150px;
-    background-color: rgba(255, 255,255, 0.3);
-    display: inline-block;
-    padding: 30px 100px;
-    border-radius: 10px;
-=======
     margin-top: 50px;
->>>>>>> d995cf1fb33e5571df36d5e7db3e1573d5521b31
 }
 #wrapper kbd{
     /* border: 1px solid red; */
@@ -47,12 +35,7 @@ body{
     margin-right: 15px;
     margin-bottom: 15px;
     text-transform: uppercase;
-<<<<<<< HEAD
-    /* background-color: rgba(0,0,0,0.4); */
-    background-color: #000;
-=======
     background-color: rgba(0,0,0,0.8);
->>>>>>> d995cf1fb33e5571df36d5e7db3e1573d5521b31
     color: #fff;
     box-shadow: 8px 8px 4px 0px rgba(0,0,0,0.75);
     transition: all 0.1s;
@@ -106,8 +89,6 @@ kbd button:nth-child2(){
     left: 10px;
 }
 
-<<<<<<< HEAD
-=======
 
 header{
     text-align: center;
@@ -161,4 +142,3 @@ kbd::after{
 #kbdm::after{background-image: url(./icon/meituan.png);}
 #kbdi::after{background-image: url(./icon/iqiyi.png);}
 
->>>>>>> d995cf1fb33e5571df36d5e7db3e1573d5521b31
