@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>myNav</title>
 	<link rel="stylesheet" href="./main.css">
 	<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
 </head>
+
 <body>
 	<header></header>
 	<main>
@@ -14,119 +16,117 @@
 		</div>
 	</main>
 	<footer></footer>
-<script>
-	keys = {
-		'0' : [1,2,3,4,5,6,7,8,9,0],
-		'1' : ['q','w','e','r','t','y','u','i','o','p'],
-		'2' : ['a','s','d','f','g','h','j','k','l'],
-		'3' : ['z','x','c','v','b','n','m'],
-		'length':4
-	 }
-	hash = {
-		'q' : 'qq.com',
-		'w' : 'weibo.com',
-		'e' : 'ele.me',
-		'r' : 'renren.com',
-		't' : 'taobao.com',
-		'y' : 'youku.com',
-		'u'	: 'uc.com',
-		'i'	: 'iciba.com',
-		'o'	: 'opera.com',
-		'p'	: '',
-		'a'	: 'aiqiyi.com',
-		's'	: 'souhu.com',
-		'd'	: '',
-		'f'	: 'facebook.com',
-		'g'	: 'google.com',
-		'h'	: 'huya.com',
-		'j'	: 'jirengu.com',
-		'k'	: '',
-		'l'	: 'letv.com',
-		'z'	: '',
-		'x'	: 'xiedaimala.com',
-		'c'	: '.com',
-		'v'	: 'vscode.com',
-		'b'	: 'baike.com',
-		'n'	: 'niuke.com',
-		'm'	: 'macdonalds.com'
-	}
-	// console.log(keys.length)
-
-	localinstorage=JSON.parse(localStorage.getItem('user_hash')||null)
-	if (localinstorage){
-		hash=localinstorage
-	}
-	console.log(hash)
-	index=0
-	while (index<keys.length){
-		div=document.createElement('div')
-		wrapper.appendChild(div)
-		index2=0 //每一行第几个键
-		row=keys[index] //第几行
-		// console.log(keys[index2])
-		while (index2<row.length){
-			kbd=document.createElement('kbd')
-			div.appendChild(kbd)
-			kbd.textContent=(row[index2])
-			// kdb.textContent(row[index2])
-			btn=document.createElement('button')
-			btn2=document.createElement('button')
-			kbd.appendChild(btn)
-			kbd.appendChild(btn2)
-			btn.textContent='E'
-			btn2.textContent='D'
-			
-			btn.id=row[index2]
-			btn2.id=row[index2]
-			// console.log(btn2)
-			btn.onclick=function(xxx){
-				// console.log(xxx)
-				//这里要想办法知道点击的是个按钮，有于通过xxx对象target属性里面的属性，可确定点击的是哪个按钮
-				// btn.id=row[index2] 之前把这句写在这里找个好久才找出错误，这样意思就是点击后才会改变id,
-				// 由于oncink事件结束后xxx对象中target里的id属性是空的，后面再改id就没用了
-				// console.log(btn.id)
-				k=xxx['target']['id']
-				// console.log(k)
-				user_define=prompt('请输入你要定义的网址')
-				hash[k]=user_define
-				// console.log(hash)
-				// 这里目前还不会
-				localStorage.setItem('user_hash',JSON.stringify(hash))
-				// hash[]
-			}
-			btn2.onclick=function(userdel){
-				ke=userdel['target']['id']
-				console.log('这里打印的是删除所点击的btn id')
-				console.log(ke)
-				// hash[ke]=''
-				delete hash[ke]
-				
-				localStorage.setItem('user_hash',JSON.stringify(hash))
-				console.log(hash)
-			}
-			
-
-			index2=index2+1
-			// console.log(index2)
+	<script>
+		var keys = {
+			'0': [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
+			'1': ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+			'2': ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+			'3': ['z', 'x', 'c', 'v', 'b', 'n', 'm'],
+			'length': 4
 		}
-		index=index+1
-	}
-		
-	document.onkeypress=function(user_key){
-		key=user_key.key
-		url=hash[key]
-		// console.log(url)
-		console.log(user_key)
-		if (hash[key]!=undefined){
-			window.open('http://www.'+url,'_blank')
-		}else{
-			kbd=document.getElementsByTagName('kbd')
-			// console.log(kbd)
-			// kbd.backgroundColor='red'
+		var hash = {
+			'q': 'qq.com',
+			'w': 'weibo.com',
+			'e': 'ele.me',
+			'r': 'renren.com',
+			't': 'taobao.com',
+			'y': 'youku.com',
+			'u': '',
+			'i': 'iciba.com',
+			'o': 'opera.com',
+			'p': '',
+			'a': 'aiqiyi.com',
+			's': 'souhu.com',
+			'd': '',
+			'f': 'facebook.com',
+			'g': 'google.com',
+			'h': 'huya.com',
+			'j': 'jirengu.com',
+			'k': '',
+			'l': 'letv.com',
+			'z': '',
+			'x': 'xiedaimala.com',
+			'c': '.com',
+			'v': 'vscode.com',
+			'b': 'baike.com',
+			'n': 'niuke.com',
+			'm': 'macdonalds.com'
+		}
+
+		localInStorage = JSON.parse(localStorage.getItem('user_hash') || null)
+		if (localInStorage) {
+			hash = localInStorage
+		}
+
+		for (var index = 0; index < keys.length; index++) {
+			div = document.createElement('div')
+			wrapper.appendChild(div)
+			index2 = 0 //每一行第几个键
+			row = keys[index] //第几行
+			for (index2 = 0; index2 < row.length; index2++) {
+
+				var kbd = document.createElement('kbd')
+				div.appendChild(kbd)
+				kbd.textContent = (row[index2])
+				// kdb.textContent(row[index2])
+				var btn = document.createElement('button')
+				var btn2 = document.createElement('button')
+				kbd.appendChild(btn)
+				kbd.appendChild(btn2)
+				btn.textContent = 'E'
+				btn2.textContent = 'D'
+				btn.id = row[index2]
+				btn2.id = row[index2]
+				kbd.id='kbd'+row[index2]
+				btn.onclick = function (xxx) {
+					// console.log(xxx)
+					//这里要想办法知道点击的是个按钮，有于通过xxx对象target属性里面的属性，可确定点击的是哪个按钮
+					// btn.id=row[index2] 之前把这句写在这里找个好久才找出错误，这样意思就是点击后才会改变id,
+					// 由于oncink事件结束后xxx对象中target里的id属性是空的，后面再改id就没用了
+					// console.log(btn.id)
+					var k = xxx['target']['id']
+					// console.log(k)
+					user_define = prompt('请输入你要定义的网址')
+					hash[k] = user_define
+					// console.log(hash)
+					localStorage.setItem('user_hash', JSON.stringify(hash))
+					// hash[]
+				}
+				btn2.onclick = function (userdel) {
+					var ke = userdel['target']['id']
+					console.log('这里打印的是删除所点击的btn id')
+					console.log(ke)
+					delete hash[ke]
+					localStorage.setItem('user_hash', JSON.stringify(hash))
+				}
+
+
+			}
 
 		}
-	}
-	
-</script>
+
+		document.onkeypress = function (user_key) {
+			var key = user_key.key
+			var url = hash[key]
+			// console.log(url)
+			console.log(user_key)
+			if (hash[key]) {
+				window.open('http://www.' + url, '_blank')
+			} else {
+				var kbd_id='kbd'+key
+				var press = document.getElementById('kbd_id')
+				// console.log(press)
+				press.style.backgroundColor='red'
+
+			}
+		}
+		document.onkeyup=function (user_key){
+			var key=user_key.key
+			var kbd_id='kbd'+key
+			var up=document.getElementById(kbd_id)
+			up.style.backgroundColor='rgba(0,0,0,0.4)'
+		}
+	</script>
 </body>
+
 </html>

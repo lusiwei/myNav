@@ -12,11 +12,16 @@ a{
 body{
     background-image: url(https://i.loli.net/2017/11/08/5a02f0c9eb538.jpg);
     background-size:cover;
+    text-align: center;
     
 }
 #wrapper{
     text-align: center;
     margin-top: 150px;
+    background-color: rgba(255, 255,255, 0.3);
+    display: inline-block;
+    padding: 30px 100px;
+    border-radius: 10px;
 }
 #wrapper kbd{
     /* border: 1px solid red; */
@@ -33,7 +38,8 @@ body{
     margin-right: 15px;
     margin-bottom: 15px;
     text-transform: uppercase;
-    background-color: rgba(0,0,0,0.4);
+    /* background-color: rgba(0,0,0,0.4); */
+    background-color: #000;
     color: #fff;
     box-shadow: 8px 8px 4px 0px rgba(0,0,0,0.75);
     transition: 1s;
@@ -73,3 +79,4 @@ kbd button:nth-child2(){
     top: 0px;
     left: 10px;
 }
+
