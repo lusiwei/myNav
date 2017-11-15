@@ -26,7 +26,10 @@ var hash = {
     l: 'letv.com',
     s: 'segmentfault.com',
     h: 'huya.com',
-    g: 'google.com'
+    g: 'google.com',
+    u: 'ubuntu.com',
+    o: 'opera.com',
+    f: 'facebook.com'
 }
 var getLocalStorage = JSON.parse(localStorage.getItem('user_hash') || null)   //取出hash,并从字符串转换成对象
 if (getLocalStorage) {
@@ -50,7 +53,7 @@ for (var keys_index = 0; keys_index < keys.length; keys_index++) {
         var img = document.createElement('img')
         kbd.appendChild(img)
         if (hash[key_value]) {
-            img.src = 'http://'+hash[key_value] + '/favicon.ico'
+            img.src = 'http://' + hash[key_value] + '/favicon.ico'
         } else {
             img.src = './favicon.ico'
         }
@@ -75,13 +78,14 @@ for (var keys_index = 0; keys_index < keys.length; keys_index++) {
             hash[key] = user_input
             // 编辑后判断icon地址
             console.log("哈哈哈")
-            console.log(img)
-            img2=btn_E.previousSibling
+            
+            img2 = btn_E.previousSibling
             if (hash[key]) {
                 img2.src = 'http://' + hash[key] + '/favicon.ico'
             } else {
                 img2.src = './favicon.ico'
             }
+            console.log(img2)
             img2.onerror = function (xxx) {
                 xxx.target.src = './favicon.ico'
             }
