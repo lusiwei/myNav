@@ -110,8 +110,13 @@ main{
     position: absolute;
     padding: 0 5px;
     background: rgb(41, 97, 224);
-    border-radius: 5px;
+    border-radius: 3px;
+    color: #fff;
     display: none;
+}
+#wrapper kbd:hover{color: #000;transition: 1s}
+#wrapper kbd:hover button{
+    display: block;
 }
 #wrapper button:hover{
    background: #fff;
