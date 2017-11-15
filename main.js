@@ -4,28 +4,29 @@
 var keys = {
     0: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], //length=14
     1: ['tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '{', '}', '|'],    //length=14
-    2: ['cl', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'colon', 'quote', 'enter'],
-    3: ['shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'shift_r'],
+    2: ['capslock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '"', 'enter'],
+    3: ['shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'shift'],
     4: ['fn', 'ctrl', 'option', 'command', 'space', 'command', 'option', 'direction'],
     length: 5
 }
 var hash = {
-    q: '//qq.com',
-    w: '//weibo.com',
-    t: '//tudou.com',
-    y: '//youku.com',
-    i: '//iqiyi.com',
-    d: '//douban.com',
-    z: '//zhihu.com',
-    m: '//meituan.com',
-    j: '//jirengu.com',
-    x: '//xiedaimala.com',
-    b: '//baidu.com',
-    a: '//alibaba.com',
-    v: '//visualgo.net/',
-    l: '//letv.com',
-    s: '//segmentfault.com',
-    h: '//huya.com'
+    q: 'qq.com',
+    w: 'weibo.com',
+    t: 'tudou.com',
+    y: 'youku.com',
+    i: 'iqiyi.com',
+    d: 'douban.com',
+    z: 'zhihu.com',
+    m: 'meituan.com',
+    j: 'jirengu.com',
+    x: 'xiedaimala.com',
+    b: 'baidu.com',
+    a: 'alibaba.com',
+    v: 'visualgo.net/',
+    l: 'letv.com',
+    s: 'segmentfault.com',
+    h: 'huya.com',
+    g: 'google.com'
 }
 var getLocalStorage = JSON.parse(localStorage.getItem('user_hash') || null)   //取出hash,并从字符串转换成对象
 if (getLocalStorage) {
@@ -49,7 +50,7 @@ for (var keys_index = 0; keys_index < keys.length; keys_index++) {
         var img = document.createElement('img')
         kbd.appendChild(img)
         if (hash[key_value]) {
-            img.src = hash[key_value] + '/favicon.ico'
+            img.src = 'http://'+hash[key_value] + '/favicon.ico'
         } else {
             img.src = './favicon.ico'
         }
@@ -73,13 +74,15 @@ for (var keys_index = 0; keys_index < keys.length; keys_index++) {
             var key = click_key_id.substring(2)
             hash[key] = user_input
             // 编辑后判断icon地址
+            console.log("哈哈哈")
             console.log(img)
+            img2=btn_E.previousSibling
             if (hash[key]) {
-                img.src = 'http://' + hash[key] + '/favicon.ico'
+                img2.src = 'http://' + hash[key] + '/favicon.ico'
             } else {
-                img.src = './favicon.ico'
+                img2.src = './favicon.ico'
             }
-            img.onerror = function (xxx) {
+            img2.onerror = function (xxx) {
                 xxx.target.src = './favicon.ico'
             }
             //将改变后的hash存到localstorage防止用户刷新后失效
