@@ -78,14 +78,14 @@ for (var keys_index = 0; keys_index < keys.length; keys_index++) {
             hash[key] = user_input
             // 编辑后判断icon地址
             console.log("哈哈哈")
-            
-            img2 = btn_E.previousSibling
+            // 之前这里写成了btn_E.previousSibling,导致每次修改网址后都要刷新icon才能出来
+            var img2 = xx.target.previousSibling
             if (hash[key]) {
                 img2.src = 'http://' + hash[key] + '/favicon.ico'
             } else {
                 img2.src = './favicon.ico'
             }
-            console.log(img2)
+            // console.log(img2)
             img2.onerror = function (xxx) {
                 xxx.target.src = './favicon.ico'
             }
