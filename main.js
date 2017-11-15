@@ -98,7 +98,11 @@ for (var keys_index = 0; keys_index < keys.length; keys_index++) {
             var click_key_id = xx.target.id
             var key = click_key_id.substring(2)
             delete hash[key]
-            console.log(hash)
+            // 点击删除按钮后icon变成默认
+            var img3=xx.target.previousSibling.previousSibling
+            // console.log(img3)
+            img3.src='./favicon.ico'
+            
             //将改变后的hash存到localstorage防止用户刷新后失效
             // JSON.stringify将hash对象转换为字符串
             localStorage.setItem('user_hash', JSON.stringify(hash))
