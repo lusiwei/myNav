@@ -75,9 +75,9 @@ for (var keys_index = 0; keys_index < keys.length; keys_index++) {
             // 编辑后判断icon地址
             console.log(img)
             if (hash[key]) {
-                img.src = hash[key] + '/favicon.ico'
+                img.src = 'http://' + hash[key] + '/favicon.ico'
             } else {
-                img.src = '//' + './favicon.ico'
+                img.src = './favicon.ico'
             }
             img.onerror = function (xxx) {
                 xxx.target.src = './favicon.ico'
