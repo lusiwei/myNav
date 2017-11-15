@@ -114,9 +114,11 @@ for (var keys_index = 0; keys_index < keys.length; keys_index++) {
 var focus = false
 input.onfocus = function (xx) {
     focus = true
+    input.placeholder=""
 }
 input.onblur = function (xx) {
     focus = false
+    input.placeholder="please input your words"
 }
 
 // 监听键盘输入

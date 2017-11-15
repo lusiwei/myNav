@@ -23,9 +23,10 @@ kbd{
     vertical-align: top;
 }
 body{
-    /* background-image: url(./bizhi.jpg);
-    background-size: cover; */
+    /* background-image: url(./bizhi.jpg); */
+    /* background-size: cover; */
     background-color: #303052;
+    /* background: #090723; */
 }
 
 
@@ -120,6 +121,7 @@ main{
 }
 #wrapper button:hover{
    background: #fff;
+   color: #000;
 }
 #wrapper button:nth-child(2){
     left: 0px;
@@ -156,6 +158,37 @@ main{
     font-family: Arial, Helvetica, sans-serif;
 }
 #search input{
+    box-sizing: border-box;
     padding: 10px;
     border-radius: 5px;
+    /* background: #303052; */
+    background: #0E0F33;
+    /* border: 1px solid gray; */
+    /* outline: 1px solid gray; */
+    /* outline-style: dashed; */
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+}
+#search input:focus{
+    /* border: 1px; */
+    border: 0px;
+    outline-width: 1px;
+}
+#search input:hover{
+    outline: 1px solid rgba(255,255,255,0.5);
+}
+#search{
+    position: relative;
+}
+#search::before{
+    display: block;
+    content: '';
+    background: url(./search.png);
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: -35px;
+    top: 2px;
+    
 }
