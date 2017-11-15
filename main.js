@@ -21,7 +21,11 @@ var hash = {
     j: '//jirengu.com',
     x: '//xiedaimala.com',
     b: '//baidu.com',
-    a: '//alibaba.com'
+    a: '//alibaba.com',
+    v: '//visualgo.net/',
+    l: '//letv.com',
+    s: '//segmentfault.com',
+    h: '//huya.com'
 }
 var getLocalStorage = JSON.parse(localStorage.getItem('user_hash') || null)   //取出hash,并从字符串转换成对象
 if (getLocalStorage) {
@@ -49,8 +53,8 @@ for (var keys_index = 0; keys_index < keys.length; keys_index++) {
         } else {
             img.src = './favicon.ico'
         }
-        img.onerror = function () {
-            img.src = './favicon.ico'
+        img.onerror = function (xxx) {
+            xxx.target.src = './favicon.ico'
         }
         // 生成编辑和删除按钮
         var btn_E = document.createElement('button')
@@ -69,13 +73,14 @@ for (var keys_index = 0; keys_index < keys.length; keys_index++) {
             var key = click_key_id.substring(2)
             hash[key] = user_input
             // 编辑后判断icon地址
+            console.log(img)
             if (hash[key]) {
                 img.src = hash[key] + '/favicon.ico'
             } else {
-                img.src = '//'+'./favicon.ico'
+                img.src = '//' + './favicon.ico'
             }
-            img.onerror = function () {
-                img.src = './favicon.ico'
+            img.onerror = function (xxx) {
+                xxx.target.src = './favicon.ico'
             }
             //将改变后的hash存到localstorage防止用户刷新后失效
             // JSON.stringify将hash对象转换为字符串

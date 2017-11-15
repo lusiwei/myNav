@@ -9,7 +9,7 @@ kbd{
     height: 70px;
     width:70px;
     font-size: 24px;
-    background: #000;
+    background: rgba(0,0,0,0.7);
     color: #fff;
     border-radius: 8px;
     text-align: center;
@@ -18,12 +18,17 @@ kbd{
     margin-right: 13px;
     position: relative;
 }
+body{
+    /* background-image: url(./bizhi.jpg);
+    background-size: cover; */
+    background-color: #303052;
+}
 
 
 /* 给特殊按键设置宽度 */
 #wrapper{
     text-align: center;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 #wrapper div #kbd_tab{
     width: 120px;
@@ -56,6 +61,7 @@ kbd{
 #search{
     /* text-align: center; */
     display: inline-block;
+    margin-top: 80px;
 }
 main{
     text-align: center;
@@ -90,4 +96,14 @@ img{
     width: 16px;
     height: 16px;
     display: inline-block;
+}
+#search button{
+    /* padding: 10px; */
+    /* font-size: 16px; */
+    padding: 8px;
+    background: #fff;
+    /* color: #fff; */
+}
+#search input{
+    padding: 10px;
 }
