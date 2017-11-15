@@ -3,8 +3,9 @@
     padding: 0;
     border: 0;
 }
-a{text-decoration: none;}
+/* a{text-decoration: none;} */
 kbd{
+    box-sizing: border-box;
     display: inline-block;
     height: 70px;
     width:70px;
@@ -17,6 +18,8 @@ kbd{
     margin-bottom: 12px;
     margin-right: 13px;
     position: relative;
+    text-transform: uppercase;
+    vertical-align: top;
 }
 body{
     /* background-image: url(./bizhi.jpg);
@@ -32,30 +35,65 @@ body{
 }
 #wrapper div #kbd_tab{
     width: 120px;
+    font-size: 18px;
+    text-align: left;
+    padding-left: 10px;
 }
-#wrapper div #kbd_14{
+#wrapper div #kbd_delete{
     width: 120px;
+    font-size: 18px;
 }
 #wrapper div #kbd_capslock{
     width: 138px;
+    font-size: 18px;
+    text-align: left;
+    padding-left: 10px;
 }
 #wrapper div #kbd_enter{
     width: 138px;
+    font-size: 18px;
+    text-align: right;
+    padding-right: 10px;
 }
 #wrapper div #kbd_shift{
     width: 178px;
+    font-size: 18px;
+    text-align: left;
+    padding-left: 10px;
 }
-#wrapper div #kbd_shift_r{
+#wrapper div #kbd_shiftr{
     width: 178px;
+    font-size: 18px;
+    text-align: right;
+    padding-right: 10px;
 }
 #wrapper div #kbd_command{
     width: 95px;
+    font-size: 18px;
+    text-align: left;
+    padding-left: 10px;
 }
 #wrapper div #kbd_space{
     width: 402px;
+    font-size: 18px;
 }
 #wrapper div #kbd_direction{
     width: 237px;
+}
+#wrapper div #kbd_option{
+    font-size: 18px;
+    text-align: left;
+    padding-left: 10px;
+}
+#wrapper div #kbd_ctrl{
+    font-size: 18px;
+    text-align: left;
+    padding-left: 10px;
+}
+#wrapper div #kbd_fn{
+    font-size: 18px;
+    text-align: left;
+    padding-left: 10px;
 }
 /* 搜索框样式 */
 #search{
@@ -89,7 +127,7 @@ main{
 #wrapper kbd:hover button{
     display: block;
 }
-img{
+#wrapper img{
     position: absolute;
     bottom: 0px;
     left: 0px;
