@@ -13,14 +13,14 @@
 </head>
 
 <body>
-        <div class="space">
-                <div class="stars">
-                    <div class="star"></div>
-                    <div class="star pink"></div>
-                    <div class="star blue"></div>
-                    <div class="star yellow"></div>
-                </div>
-            </div>
+    <div class="space">
+        <div class="stars">
+            <div class="star"></div>
+            <div class="star pink"></div>
+            <div class="star blue"></div>
+            <div class="star yellow"></div>
+        </div>
+    </div>
     <img src="./longmao.gif" alt="lm" srcset="">
     <header>
         <a href="https://github.com/lusiwei/myNav">
@@ -29,15 +29,38 @@
         </a>
     </header>
     <main>
-        <div id='search'>
-            <input type="text" id='input' placeholder="please input your words">
+        <form id='search' action="http://www.baidu.com/baidu">
+
+            <input type="text" id='input' name="word" placeholder="please input your words">
             <button id='baidu'>百度搜索</button>
             <button id='google'>谷歌搜索</button>
-        </div>
+        </form>
         <div id='wrapper'></div>
     </main>
     <footer></footer>
+
     <script src="main.js"></script>
+    <!-- <script type="text/javascript"  charset="gbk" src="./opensug.js">/*openSug.js免费开源公共库*/</script> -->
+    <!-- <script charset="UTF-8" src="http://www.92find.com/inteltip.js"></script> -->
+    <script charset="gbk" src="https://baiduinc.github.io/opensug/opensug.js"></script>
+    <script>
+        // 自定义百度搜索框
+        BaiduSuggestion.bind('input',
+            {
+                "XOffset": "0",
+                "YOffset": "0",
+                "width": "",
+                "fontColor": "#000",
+                "fontColorHI": "#fff",
+                "fontSize": "16px",
+                "fontFamily": "Microsoft YaHei",
+                // "borderColor": "#303052",
+                "bgcolorHI": "#303052",
+                "sugSubmit": false
+            }, function (Callback) {
+                console.log('您选择了：' + Callback);
+            });
+    </script>
 </body>
 
 </html>

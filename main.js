@@ -22,7 +22,7 @@ var hash = {
     x: 'xiedaimala.com',
     b: 'baidu.com',
     a: 'alibaba.com',
-    v: 'visualgo.net/',
+    v: 'visualgo.net',
     l: 'letv.com',
     s: 'segmentfault.com',
     h: 'huya.com',
@@ -53,13 +53,20 @@ for (var keys_index = 0; keys_index < keys.length; keys_index++) {
         var img = document.createElement('img')
         kbd.appendChild(img)
         if (hash[key_value]) {
-            img.src = 'http://' + hash[key_value] + '/favicon.ico'
+            img.src = '//' + hash[key_value] + '/favicon.ico'
+
         } else {
             img.src = './favicon.ico'
         }
         img.onerror = function (xxx) {
-            xxx.target.src = './favicon.ico'
+            // xxx.target.src = './favicon.ico'
+            // 获取请求错误的img所在的键
+            var key_error=xxx.target.previousSibling.textContent
+            // console.log(key_error)
+            xxx.target.src = 'https://plus.google.com/_/favicon?domain=' + hash[key_error]
+            // console.log(xxx)
         }
+
         // 生成编辑和删除按钮
         var btn_E = document.createElement('button')
         var btn_D = document.createElement('button')
@@ -83,13 +90,15 @@ for (var keys_index = 0; keys_index < keys.length; keys_index++) {
                 // 之前这里写成了btn_E.previousSibling,导致每次修改网址后都要刷新icon才能出来
                 var img2 = xx.target.previousSibling
                 if (hash[key]) {
-                    img2.src = 'http://' + hash[key] + '/favicon.ico'
+                    img2.src = '//' + hash[key] + '/favicon.ico'
                 } else {
                     img2.src = './favicon.ico'
                 }
                 // console.log(img2)
                 img2.onerror = function (xxx) {
-                    xxx.target.src = './favicon.ico'
+                    // xxx.target.src = './favicon.ico'
+                    xxx.target.src = 'https://plus.google.com/_/favicon?domain=' + hash[key]
+                    // console.log(xxx.target.src)
                 }
                 //将改变后的hash存到localstorage防止用户刷新后失效
                 // JSON.stringify将hash对象转换为字符串
