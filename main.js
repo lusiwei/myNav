@@ -2,7 +2,7 @@
 
 // 键盘每一行用一个数组表示，然后整个键盘用hash表示
 var keys = {
-    0: ['~',1, 2, 3, 4, 5, 6, 7, 8, 9, 0,'-', '+', 'delete'], //length=14
+    0: ['~', 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '-', '+', 'delete'], //length=14
     1: ['tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '{', '}', '|'],    //length=14
     2: ['capslock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '"', 'enter'],
     3: ['shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'shiftr'],
@@ -72,26 +72,29 @@ for (var keys_index = 0; keys_index < keys.length; keys_index++) {
         // 编辑按钮
         btn_E.onclick = function (xx) {
             var user_input = prompt('请输入你要自定义的网址')
-            console.log(xx)
+
             var click_key_id = xx.target.id
             var key = click_key_id.substring(2)
-            hash[key] = user_input
-            // 编辑后判断icon地址
-            console.log("哈哈哈")
-            // 之前这里写成了btn_E.previousSibling,导致每次修改网址后都要刷新icon才能出来
-            var img2 = xx.target.previousSibling
-            if (hash[key]) {
-                img2.src = 'http://' + hash[key] + '/favicon.ico'
-            } else {
-                img2.src = './favicon.ico'
+            if (user_input != null) {
+                hash[key] = user_input
+
+                // 编辑后判断icon地址
+                console.log("哈哈哈")
+                // 之前这里写成了btn_E.previousSibling,导致每次修改网址后都要刷新icon才能出来
+                var img2 = xx.target.previousSibling
+                if (hash[key]) {
+                    img2.src = 'http://' + hash[key] + '/favicon.ico'
+                } else {
+                    img2.src = './favicon.ico'
+                }
+                // console.log(img2)
+                img2.onerror = function (xxx) {
+                    xxx.target.src = './favicon.ico'
+                }
+                //将改变后的hash存到localstorage防止用户刷新后失效
+                // JSON.stringify将hash对象转换为字符串
+                localStorage.setItem('user_hash', JSON.stringify(hash))
             }
-            // console.log(img2)
-            img2.onerror = function (xxx) {
-                xxx.target.src = './favicon.ico'
-            }
-            //将改变后的hash存到localstorage防止用户刷新后失效
-            // JSON.stringify将hash对象转换为字符串
-            localStorage.setItem('user_hash', JSON.stringify(hash))
         }
         // 删除按钮
         btn_D.onclick = function (xx) {
@@ -99,10 +102,10 @@ for (var keys_index = 0; keys_index < keys.length; keys_index++) {
             var key = click_key_id.substring(2)
             delete hash[key]
             // 点击删除按钮后icon变成默认
-            var img3=xx.target.previousSibling.previousSibling
+            var img3 = xx.target.previousSibling.previousSibling
             // console.log(img3)
-            img3.src='./favicon.ico'
-            
+            img3.src = './favicon.ico'
+
             //将改变后的hash存到localstorage防止用户刷新后失效
             // JSON.stringify将hash对象转换为字符串
             localStorage.setItem('user_hash', JSON.stringify(hash))
@@ -114,11 +117,11 @@ for (var keys_index = 0; keys_index < keys.length; keys_index++) {
 var focus = false
 input.onfocus = function (xx) {
     focus = true
-    input.placeholder=""
+    input.placeholder = ""
 }
 input.onblur = function (xx) {
     focus = false
-    input.placeholder="please input your words"
+    input.placeholder = "please input your words"
 }
 
 // 监听键盘输入
