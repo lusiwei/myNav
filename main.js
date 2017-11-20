@@ -59,11 +59,11 @@ for (var keys_index = 0; keys_index < keys.length; keys_index++) {
             img.src = './favicon.ico'
         }
         img.onerror = function (xxx) {
-            // xxx.target.src = './favicon.ico'
+            xxx.target.src = './favicon.ico'
             // 获取请求错误的img所在的键
-            var key_error=xxx.target.previousSibling.textContent
+            // var key_error=xxx.target.previousSibling.textContent
             // console.log(key_error)
-            xxx.target.src = 'https://plus.google.com/_/favicon?domain=' + hash[key_error]
+            // xxx.target.src = 'https://plus.google.com/_/favicon?domain=' + hash[key_error]
             // console.log(xxx)
         }
 
@@ -96,8 +96,8 @@ for (var keys_index = 0; keys_index < keys.length; keys_index++) {
                 }
                 // console.log(img2)
                 img2.onerror = function (xxx) {
-                    // xxx.target.src = './favicon.ico'
-                    xxx.target.src = 'https://plus.google.com/_/favicon?domain=' + hash[key]
+                    xxx.target.src = './favicon.ico'
+                    // xxx.target.src = 'https://plus.google.com/_/favicon?domain=' + hash[key]
                     // console.log(xxx.target.src)
                 }
                 //将改变后的hash存到localstorage防止用户刷新后失效
